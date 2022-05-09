@@ -47,7 +47,7 @@ window.addEventListener('DOMContentLoaded',()=>{
 	//	获取元数据
 	console.log('Fetching MetaData:',play);
 	var chartMetaXHR=new XMLHttpRequest();
-	chartMetaXHR.open('GET','https://charts.pgr.han-han.xyz/'+play+'/meta.json',true);
+	chartMetaXHR.open('GET','https://charts.phicommunity.com.cn/'+play+'/meta.json',true);
 	chartMetaXHR.addEventListener('error',()=>{
 		alert('谱面信息获取失败！');
 	});
@@ -66,7 +66,7 @@ window.addEventListener('DOMContentLoaded',()=>{
 		//	获取谱面
 		console.log('Fetching Chart:',play);
 		var chartXHR=new XMLHttpRequest();
-		chartXHR.open('GET','https://charts.pgr.han-han.xyz/'+play+"/"+chartMetadata["chart"+level.toUpperCase()],true);
+		chartXHR.open('GET','https://charts.phicommunity.com.cn/'+play+"/"+chartMetadata["chart"+level.toUpperCase()],true);
 		chartXHR.addEventListener('load',()=>{
 			window.chartString=chartXHR.responseText;
 			try {
@@ -84,8 +84,8 @@ window.addEventListener('DOMContentLoaded',()=>{
 	
 		//	获取曲绘
 		console.log('Fetching illustration:',chartMetadata["illustration"]);
-		document.body.setAttribute('style','--background: url('+'https://charts.pgr.han-han.xyz/'+chartMetadata["codename"]+"/"+chartMetadata['illustration'].replaceAll(' ','%20')+')');
-		fetch('https://charts.pgr.han-han.xyz/'+chartMetadata["codename"]+"/"+chartMetadata["illustration"]).then(response => {
+		document.body.setAttribute('style','--background: url('+'https://charts.phicommunity.com.cn/'+chartMetadata["codename"]+"/"+chartMetadata['illustration'].replaceAll(' ','%20')+')');
+		fetch('https://charts.phicommunity.com.cn/'+chartMetadata["codename"]+"/"+chartMetadata["illustration"]).then(response => {
 			response.blob().then(blob => {
 				createImageBitmap(blob).then(img => {
 					window.Renderer.bgImage=img;
@@ -109,7 +109,7 @@ window.addEventListener('DOMContentLoaded',()=>{
 			var chartLineDataXHR = new XMLHttpRequest();
 			chartLineDataXHR.open(
 				"GET",
-				"https://charts.pgr.han-han.xyz/" +
+				"https://charts.phicommunity.com.cn/" +
 					chartMetadata["codename"] +
 					"/" +
 					chartMetadata["lineTexture"],
@@ -125,13 +125,13 @@ window.addEventListener('DOMContentLoaded',()=>{
 				for (let i = 0; i < window.chartLine.length; i++) {
 					console.log(
 						"Fetching chart line texture:",
-						"https://charts.pgr.han-han.xyz/" +
+						"https://charts.phicommunity.com.cn/" +
 							chartMetadata["codename"] +
 							"/" +
 							chartLine[i].Image.toString()
 					);
 					fetch(
-						"https://charts.pgr.han-han.xyz/" +
+						"https://charts.phicommunity.com.cn/" +
 							chartMetadata["codename"] +
 							"/" +
 							chartLine[i].Image.toString()
@@ -153,7 +153,7 @@ window.addEventListener('DOMContentLoaded',()=>{
 		window.bgs={};
 		//	获取歌曲
 		console.log('Fetching Audio:',chartMetadata["musicFile"]);
-		fetch('https://charts.pgr.han-han.xyz/'+chartMetadata["codename"]+"/"+chartMetadata["musicFile"]).then(response => {
+		fetch('https://charts.phicommunity.com.cn/'+chartMetadata["codename"]+"/"+chartMetadata["musicFile"]).then(response => {
 			response.arrayBuffer().then(arrayBuffer => {
 				actx.decodeAudioData(arrayBuffer).then(audioBuff=>{
 					window.Renderer.bgMusic=audioBuff;
