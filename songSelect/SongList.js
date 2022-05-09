@@ -44,7 +44,7 @@ function SongList({ defaultLevel = "ez" }) {
 		const { songMeta, codename } = items[id];
 
 		fetch(
-			`https://charts.pgr.han-han.xyz/${codename}/${songMeta["illustration"]}`
+			`https://charts.phicommunity.com.cn/${codename}/${songMeta["illustration"]}`
 		)
 			.then((response) => response.blob())
 			.then((blob) => {
@@ -58,12 +58,12 @@ function SongList({ defaultLevel = "ez" }) {
 			.catch((err) => {
 				console.err(
 					"获取曲绘失败!",
-					`url: https://charts.pgr.han-han.xyz/${codename}/${songMeta["illustration"]}`,
+					`url: https://charts.phicommunity.com.cn/${codename}/${songMeta["illustration"]}`,
 					err
 				);
 			});
 		fetch(
-			`https://charts.pgr.han-han.xyz/${codename}/${songMeta["musicFile"]}`
+			`https://charts.phicommunity.com.cn/${codename}/${songMeta["musicFile"]}`
 		)
 			.then((response) => response.blob())
 			.then((blob) => {
@@ -102,7 +102,7 @@ function SongList({ defaultLevel = "ez" }) {
 			.catch((err) => {
 				console.err(
 					"获取乐曲失败!",
-					`url: https://charts.pgr.han-han.xyz/${codename}/${songMeta["musicFile"]}`,
+					`url: https://charts.phicommunity.com.cn/${codename}/${songMeta["musicFile"]}`,
 					err
 				);
 			});

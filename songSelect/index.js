@@ -44,7 +44,7 @@ window.addEventListener("DOMContentLoaded", () => {
 	var songListXHR = new XMLHttpRequest();
 	songListXHR.open(
 		"GET",
-		"https://charts.phi.han-han.xyz/" + chapterName + ".json",
+		"https://charts.phicommunity.com.cn/" + chapterName + ".json",
 		true
 	);
 	songListXHR.addEventListener("load", () => {
@@ -165,7 +165,7 @@ function getSongMeta(songCodeName) {
 	var getSongMetaXHR = new XMLHttpRequest();
 	getSongMetaXHR.open(
 		"GET",
-		"https://charts.phi.han-han.xyz/" + songCodeName + "/meta.json",
+		"https://charts.phicommunity.com.cn/" + songCodeName + "/meta.json",
 		false
 	);
 	getSongMetaXHR.send();
